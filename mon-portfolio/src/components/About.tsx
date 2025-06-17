@@ -1,5 +1,5 @@
 // components/AboutPage.jsx
-// "use client";
+"use client";
 
 import { motion } from 'framer-motion';
 import { Code, Palette, Database, Globe, Award, Briefcase, User, Star } from 'lucide-react';

@@ -1,4 +1,5 @@
-// src/app/components/Header.tsx
+'use client';
+
 import Link from 'next/link';
 import { Github, Mail, Phone, Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';

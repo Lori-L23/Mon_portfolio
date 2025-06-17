@@ -1,4 +1,5 @@
 // components/SkillsPage.jsx
+'use client';
 import { motion } from 'framer-motion';
 import { Code, Palette, Database, Globe, Cpu, Smartphone, Server, GitBranch, Figma, Terminal } from 'lucide-react';
 import { Skill } from '@/types/portfolio';
