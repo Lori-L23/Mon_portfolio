@@ -1,11 +1,41 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useSpring, useTransform, AnimatePresence } from 'framer-motion';
-import { Github, ExternalLink, Mail, Phone, MapPin, Code, Palette, Database, Globe, Menu, X, ChevronDown, Star } from 'lucide-react';
-import Header1 from './components/Header';
+import React, { useState } from 'react';
+import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
+import { 
+  Github as GithubIcon, 
+  ExternalLink as ExternalLinkIcon, 
+  Mail as MailIcon, 
+  Phone as PhoneIcon, 
+  MapPin as MapPinIcon, 
+  Code as CodeIcon, 
+  Palette as PaletteIcon, 
+  Database as DatabaseIcon, 
+  Globe as GlobeIcon, 
+  Menu as MenuIcon, 
+  X as XIcon, 
+  ChevronDown as ChevronDownIcon, 
+  Star as StarIcon 
+} from 'lucide-react';
+
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  github: string;
+  demo: string;
+};
+
+type Skill = {
+  name: string;
+  level: number;
+  // icon: JSX.Element;
+   icon: React.ReactNode;
+};
+
 const Portfolio = () => {
-  const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -15,13 +45,13 @@ const Portfolio = () => {
   });
 
   // Données du portfolio
-const projects = [
+  const projects: Project[] = [
     {
       id: 1,
       title: "Plateforme de Mise en Relation Élèves-Répétiteurs",
       description: "Plateforme web permettant aux élèves de trouver des répétiteurs qualifiés dans leur région avec système de réservation et paiement intégré",
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop",
-      technologies: [ "React.js", "Mysql", "Stripe", "Laravel", "Tailwind"],
+      technologies: ["React.js", "Mysql", "Stripe", "Laravel", "Tailwind"],
       github: "https://github.com/Lori-L23/FilRouge",
       demo: "#"
     },
@@ -45,19 +75,19 @@ const projects = [
     }
   ];
 
-  const skills = [
-    { name: "React/Next.js", level: 80, icon: <Code className="w-6 h-6" /> },
-    { name: "TypeScript", level: 60, icon: <Code className="w-6 h-6" /> },
-    { name: "UI/UX Design", level: 85, icon: <Palette className="w-6 h-6" /> },
-    { name: "Node.js", level: 75, icon: <Database className="w-6 h-6" /> },
-    { name: "Python", level: 70, icon: <Code className="w-6 h-6" /> },
-    { name: "Vercel", level: 60, icon: <Globe className="w-6 h-6" /> }
+  const skills: Skill[] = [
+    { name: "React/Next.js", level: 80, icon: <CodeIcon className="w-6 h-6" /> },
+    { name: "TypeScript", level: 60, icon: <CodeIcon className="w-6 h-6" /> },
+    { name: "UI/UX Design", level: 85, icon: <PaletteIcon className="w-6 h-6" /> },
+    { name: "Node.js", level: 75, icon: <DatabaseIcon className="w-6 h-6" /> },
+    { name: "Python", level: 70, icon: <CodeIcon className="w-6 h-6" /> },
+    { name: "Vercel", level: 60, icon: <GlobeIcon className="w-6 h-6" /> }
   ];
 
   // Animation variants
   const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 60 },
+    visible: { opacity: 1, y: 0 },
     transition: { duration: 0.6, ease: "easeOut" }
   };
 
@@ -113,7 +143,7 @@ const projects = [
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X /> : <Menu />}
+            {isMenuOpen ? <XIcon /> : <MenuIcon />}
           </motion.button>
         </div>
       </div>
@@ -169,7 +199,11 @@ const projects = [
       />
       
       <div className="max-w-7xl mx-auto px-6 py-20 text-center relative z-10">
-        <motion.div {...fadeInUp}>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
           <motion.h1 
             className="text-5xl md:text-7xl font-bold mb-6"
             initial={{ opacity: 0, scale: 0.5 }}
@@ -234,7 +268,7 @@ const projects = [
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <ChevronDown className="w-8 h-8 text-gray-400" />
+        <ChevronDownIcon className="w-8 h-8 text-gray-400" />
       </motion.div>
     </section>
   );
@@ -345,11 +379,13 @@ const projects = [
           whileInView="animate"
           viewport={{ once: true }}
         >
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.id}
               className="bg-white rounded-2xl shadow-xl overflow-hidden group"
               variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
               whileHover={{ y: -10, boxShadow: "0 25px 50px rgba(0,0,0,0.15)" }}
               transition={{ duration: 0.3 }}
             >
@@ -367,7 +403,7 @@ const projects = [
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <Github className="w-4 h-4" />
+                      <GithubIcon className="w-4 h-4" />
                     </motion.a>
                     <motion.a
                       href={project.demo}
@@ -375,7 +411,7 @@ const projects = [
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLinkIcon className="w-4 h-4" />
                     </motion.a>
                   </div>
                 </div>
@@ -426,11 +462,13 @@ const projects = [
           whileInView="animate"
           viewport={{ once: true }}
         >
-          {skills.map((skill, index) => (
+          {skills.map((skill) => (
             <motion.div
               key={skill.name}
               className="bg-gray-50 p-6 rounded-2xl"
               variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
               whileHover={{ scale: 1.02 }}
             >
               <div className="flex items-center mb-4">
@@ -446,7 +484,7 @@ const projects = [
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1.5, ease: "easeOut", delay: index * 0.1 }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
                   />
                 </div>
               </div>
@@ -488,9 +526,9 @@ const projects = [
             
             <div className="space-y-6">
               {[
-                { icon: <Mail className="w-6 h-6" />, text: "Atefalori@icloud.com" },
-                { icon: <Phone className="w-6 h-6" />, text: "+237 6 77 29 64 72" },
-                { icon: <MapPin className="w-6 h-6" />, text: "Douala, Littoral" }
+                { icon: <MailIcon className="w-6 h-6" />, text: "Atefalori@icloud.com" },
+                { icon: <PhoneIcon className="w-6 h-6" />, text: "+237 6 77 29 64 72" },
+                { icon: <MapPinIcon className="w-6 h-6" />, text: "Douala, Littoral" }
               ].map((contact, index) => (
                 <motion.div
                   key={index}
@@ -562,7 +600,6 @@ const projects = [
   return (
     <div className="font-sans">
       <Header />
-      {/* <Header1 /> */}
       
       <HeroSection />
       <AboutSection />
@@ -583,10 +620,10 @@ const projects = [
               Développeuse Full Stack passionnée par l'innovation
             </p>
             <div className="flex justify-center space-x-6 mb-8">
-              {[Github, Mail, Phone].map((Icon, index) => (
+              {[GithubIcon, MailIcon, PhoneIcon].map((Icon, index) => (
                 <motion.a
                   key={index}
-                  href="https://github.com/Lori-L23"
+                  href={index === 0 ? "https://github.com/Lori-L23" : index === 1 ? "mailto:Atefalori@icloud.com" : "tel:+237677296472"}
                   className="text-gray-400 hover:text-white transition-colors"
                   whileHover={{ scale: 1.2, y: -2 }}
                   whileTap={{ scale: 0.9 }}
