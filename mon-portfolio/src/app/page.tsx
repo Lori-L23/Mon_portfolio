@@ -1,21 +1,22 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
-import { 
-  Github as GithubIcon, 
-  ExternalLink as ExternalLinkIcon, 
-  Mail as MailIcon, 
-  Phone as PhoneIcon, 
-  MapPin as MapPinIcon, 
-  Code as CodeIcon, 
-  Palette as PaletteIcon, 
-  Database as DatabaseIcon, 
-  Globe as GlobeIcon, 
-  Menu as MenuIcon, 
-  X as XIcon, 
-  ChevronDown as ChevronDownIcon, 
-  Star as StarIcon 
+import {
+  Github as GithubIcon,
+  ExternalLink as ExternalLinkIcon,
+  Mail as MailIcon,
+  Phone as PhoneIcon,
+  MapPin as MapPinIcon,
+  Code as CodeIcon,
+  Palette as PaletteIcon,
+  Database as DatabaseIcon,
+  Globe as GlobeIcon,
+  Menu as MenuIcon,
+  X as XIcon,
+  ChevronDown as ChevronDownIcon
 } from 'lucide-react';
 
 type Project = {
@@ -31,8 +32,7 @@ type Project = {
 type Skill = {
   name: string;
   level: number;
-  // icon: JSX.Element;
-   icon: React.ReactNode;
+  icon: React.ReactNode;
 };
 
 const Portfolio = () => {
@@ -78,7 +78,7 @@ const Portfolio = () => {
   const skills: Skill[] = [
     { name: "React/Next.js", level: 80, icon: <CodeIcon className="w-6 h-6" /> },
     { name: "TypeScript", level: 60, icon: <CodeIcon className="w-6 h-6" /> },
-    { name: "UI/UX Design", level: 85, icon: <PaletteIcon className="w-6 h-6" /> },
+    { name: "Figma", level: 55, icon: <PaletteIcon className="w-6 h-6" /> },
     { name: "Node.js", level: 75, icon: <DatabaseIcon className="w-6 h-6" /> },
     { name: "Python", level: 70, icon: <CodeIcon className="w-6 h-6" /> },
     { name: "Vercel", level: 60, icon: <GlobeIcon className="w-6 h-6" /> }
@@ -99,96 +99,12 @@ const Portfolio = () => {
     }
   };
 
-  const scaleHover = {
-    hover: { scale: 1.05, transition: { duration: 0.2 } }
-  };
-
-  // Header Component
-  const Header = () => (
-    <motion.header 
-      className="fixed top-0 w-full bg-white/90 backdrop-blur-lg z-50 border-b border-gray-100"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex justify-between items-center">
-          <motion.div 
-            className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-            whileHover={{ scale: 1.05 }}
-          >
-            Lori.dev
-          </motion.div>
-          
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {['Accueil', 'À propos', 'Projets', 'Compétences', 'Contact'].map((item, index) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase().replace(' ', '').replace('à', 'a')}`}
-                className="text-gray-700 font-medium hover:text-blue-600 transition-colors relative"
-                whileHover={{ y: -2 }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                {item}
-              </motion.a>
-            ))}
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <motion.button
-            className="md:hidden p-2"
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <XIcon /> : <MenuIcon />}
-          </motion.button>
-        </div>
-      </div>
-
-      {/* Progress Bar */}
-      <motion.div
-        className="h-1 bg-gradient-to-r from-blue-600 to-purple-600 origin-left"
-        style={{ scaleX }}
-      />
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            className="md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-          >
-            <nav className="p-6 space-y-4">
-              {['Accueil', 'À propos', 'Projets', 'Compétences', 'Contact'].map((item) => (
-                <motion.a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(' ', '').replace('à', 'a')}`}
-                  className="block text-gray-700 font-medium hover:text-blue-600 transition-colors"
-                  whileHover={{ x: 10 }}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item}
-                </motion.a>
-              ))}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
-  );
-
   // Hero Section
   const HeroSection = () => (
     <section id="accueil" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Background Animation */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 opacity-30"
-        animate={{ 
+        animate={{
           background: [
             "radial-gradient(circle at 20% 50%, #3b82f6 0%, transparent 50%)",
             "radial-gradient(circle at 80% 20%, #8b5cf6 0%, transparent 50%)",
@@ -197,14 +113,14 @@ const Portfolio = () => {
         }}
         transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
       />
-      
+
       <div className="max-w-7xl mx-auto px-6 py-20 text-center relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.h1 
+          <motion.h1
             className="text-5xl md:text-7xl font-bold mb-6"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -216,8 +132,8 @@ const Portfolio = () => {
             <br />
             <span className="text-gray-800">Full Stack</span>
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -225,30 +141,39 @@ const Portfolio = () => {
           >
             Passionnée par la création d'expériences numériques exceptionnelles avec les technologies modernes
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <motion.button
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all"
-              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
+            <motion.div
+              whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(59, 130, 246, 0.3)' }}
               whileTap={{ scale: 0.95 }}
             >
-              Voir mes projets
-            </motion.button>
-            <motion.button
-              className="border-2 border-gray-800 text-gray-800 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 hover:text-white transition-all"
+              <Link
+                href="/projects"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all text-center block"
+              >
+                Voir mes projets
+              </Link>
+            </motion.div>
+
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Me contacter
-            </motion.button>
+              <Link
+                href="/contact"
+                className="border-2 border-gray-800 text-gray-800 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 hover:text-white transition-all text-center block"
+              >
+                Me contacter
+              </Link>
+            </motion.div>
           </motion.div>
         </motion.div>
-        
+
         {/* Floating Elements */}
         <motion.div
           className="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-full"
@@ -261,9 +186,9 @@ const Portfolio = () => {
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
-      
+
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
@@ -273,11 +198,11 @@ const Portfolio = () => {
     </section>
   );
 
-  // About Section
+  // About Section avec l'image optimisée
   const AboutSection = () => (
     <section id="apropos" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -298,15 +223,29 @@ const Portfolio = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="relative">
-              <motion.div 
-                className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl shadow-2xl"
+              <motion.div
+                className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl shadow-2xl overflow-hidden"
                 whileHover={{ rotate: 5, scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-4 bg-white rounded-2xl flex items-center justify-center">
-                  <div className="text-6xl">👨‍💻</div>
+                <div className="absolute inset-4 bg-white rounded-2xl overflow-hidden">
+                  <Image
+                    src="/lori2.jpg"
+                    alt="Portrait professionnel de Lori"
+                    width={320}
+                    height={320}
+                    className="object-cover object-top w-full h-full"
+                    quality={90}
+                    priority
+                    style={{
+                      filter: 'brightness(1.05) contrast(1.1) saturate(1.1)',
+                      transform: 'translateZ(0)'
+                    }}
+                  />
                 </div>
+                <div className="absolute inset-0 rounded-3xl border-4 border-white/10 pointer-events-none" />
               </motion.div>
+              <div className="absolute inset-0 rounded-3xl shadow-[0_25px_50px_-12px_rgba(79,70,229,0.3)]" />
             </div>
           </motion.div>
 
@@ -320,15 +259,15 @@ const Portfolio = () => {
               Développeuse passionnée depuis 3+ ans
             </h3>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Je suis une développeuse full-stack spécialisée dans la création d'applications web modernes 
-              et performantes. Mon expertise couvre l'ensemble de la stack technologique, du front-end 
+              Je suis une développeuse full-stack spécialisée dans la création d'applications web modernes
+              et performantes. Mon expertise couvre l'ensemble de la stack technologique, du front-end
               interactif au back-end robuste.
             </p>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Toujours à l'affût des dernières tendances technologiques, j'aime relever de nouveaux 
+              Toujours à l'affût des dernières tendances technologiques, j'aime relever de nouveaux
               défis et créer des solutions innovantes qui répondent aux besoins réels des utilisateurs.
             </p>
-            
+
             <div className="grid grid-cols-2 gap-6">
               {[
                 { label: "Projets réalisés", value: "20+" },
@@ -336,7 +275,7 @@ const Portfolio = () => {
                 { label: "Années d'expérience", value: "2+" },
                 { label: "Technologies maîtrisées", value: "10+" }
               ].map((stat, index) => (
-                <motion.div 
+                <motion.div
                   key={stat.label}
                   className="text-center p-4 bg-gray-50 rounded-xl"
                   initial={{ opacity: 0, y: 20 }}
@@ -360,7 +299,7 @@ const Portfolio = () => {
   const ProjectsSection = () => (
     <section id="projets" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -372,7 +311,7 @@ const Portfolio = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={staggerContainer}
           initial="initial"
@@ -390,8 +329,8 @@ const Portfolio = () => {
               transition={{ duration: 0.3 }}
             >
               <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -399,6 +338,8 @@ const Portfolio = () => {
                   <div className="absolute bottom-4 left-4 right-4 flex gap-2">
                     <motion.a
                       href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
@@ -407,6 +348,8 @@ const Portfolio = () => {
                     </motion.a>
                     <motion.a
                       href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
@@ -416,11 +359,11 @@ const Portfolio = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-3 text-gray-800">{project.title}</h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
                     <span
@@ -443,7 +386,7 @@ const Portfolio = () => {
   const SkillsSection = () => (
     <section id="competences" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -455,7 +398,7 @@ const Portfolio = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 gap-8"
           variants={staggerContainer}
           initial="initial"
@@ -476,7 +419,7 @@ const Portfolio = () => {
                 <h3 className="text-lg font-semibold text-gray-800">{skill.name}</h3>
                 <span className="ml-auto text-blue-600 font-bold">{skill.level}%</span>
               </div>
-              
+
               <div className="relative">
                 <div className="w-full bg-gray-200 rounded-full h-3">
                   <motion.div
@@ -499,7 +442,7 @@ const Portfolio = () => {
   const ContactSection = () => (
     <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -520,10 +463,10 @@ const Portfolio = () => {
           >
             <h3 className="text-2xl font-bold mb-6">Discutons de votre projet</h3>
             <p className="text-lg mb-8 text-gray-300 leading-relaxed">
-              Vous avez un projet en tête ? Je serais ravi de discuter avec vous et de voir 
+              Vous avez un projet en tête ? Je serais ravi de discuter avec vous et de voir
               comment nous pouvons travailler ensemble pour le concrétiser.
             </p>
-            
+
             <div className="space-y-6">
               {[
                 { icon: <MailIcon className="w-6 h-6" />, text: "Atefalori@icloud.com" },
@@ -567,21 +510,21 @@ const Portfolio = () => {
                   whileFocus={{ scale: 1.02 }}
                 />
               </div>
-              
+
               <motion.input
                 type="text"
                 placeholder="Sujet"
                 className="w-full p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:border-blue-400 focus:outline-none transition-colors text-white placeholder-gray-300"
                 whileFocus={{ scale: 1.02 }}
               />
-              
+
               <motion.textarea
                 placeholder="Message"
                 rows={6}
                 className="w-full p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:border-blue-400 focus:outline-none transition-colors text-white placeholder-gray-300 resize-none"
                 whileFocus={{ scale: 1.02 }}
               />
-              
+
               <motion.button
                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all"
                 whileHover={{ scale: 1.02, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
@@ -599,47 +542,11 @@ const Portfolio = () => {
 
   return (
     <div className="font-sans">
-      <Header />
-      
       <HeroSection />
       <AboutSection />
       <ProjectsSection />
       <SkillsSection />
       <ContactSection />
-      
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-bold mb-4">Lori.dev</h3>
-            <p className="text-gray-400 mb-6">
-              Développeuse Full Stack passionnée par l'innovation
-            </p>
-            <div className="flex justify-center space-x-6 mb-8">
-              {[GithubIcon, MailIcon, PhoneIcon].map((Icon, index) => (
-                <motion.a
-                  key={index}
-                  href={index === 0 ? "https://github.com/Lori-L23" : index === 1 ? "mailto:Atefalori@icloud.com" : "tel:+237677296472"}
-                  className="text-gray-400 hover:text-white transition-colors"
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Icon className="w-6 h-6" />
-                </motion.a>
-              ))}
-            </div>
-            <div className="border-t border-gray-800 pt-8">
-              <p className="text-gray-500">
-                © 2025 Lori.dev. Tous droits réservés.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </footer>
     </div>
   );
 };
