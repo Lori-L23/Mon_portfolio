@@ -37,7 +37,6 @@ const Skills = () => {
     { name: 'React Native', level: 65, icon: <Smartphone className="w-6 h-6" />, category: 'Mobile' },
     { name: 'Git/GitHub', level: 85, icon: <GitBranch className="w-6 h-6" />, category: 'Tools' },
     { name: 'Figma', level: 75, icon: <Figma className="w-6 h-6" />, category: 'Design' },
-    
   ];
 
   const softSkills = [
@@ -132,7 +131,7 @@ const Skills = () => {
               >
                 {technicalSkills
                   .filter((skill) => skill.category === category)
-                  .map((skill, idx) => (
+                  .map((skill) => (
                     <motion.div
                       key={skill.name}
                       className="bg-gray-50 p-6 rounded-xl"
@@ -157,7 +156,7 @@ const Skills = () => {
                             initial={{ width: 0 }}
                             whileInView={{ width: `${skill.level}%` }}
                             viewport={{ once: true }}
-                            transition={{ duration: 1.5, ease: 'easeOut', delay: idx * 0.1 }}
+                            transition={{ duration: 1.5, ease: 'easeOut' }}
                           />
                         </div>
                       </div>
@@ -190,7 +189,7 @@ const Skills = () => {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            {softSkills.map((skill, index) => (
+            {softSkills.map((skill) => (
               <motion.div
                 key={skill.name}
                 className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
@@ -211,7 +210,7 @@ const Skills = () => {
                       initial={{ width: 0 }}
                       whileInView={{ width: `${skill.level}%` }}
                       viewport={{ once: true }}
-                      transition={{ duration: 1.5, ease: 'easeOut', delay: index * 0.1 }}
+                      transition={{ duration: 1.5, ease: 'easeOut' }}
                     />
                   </div>
                 </div>
@@ -301,7 +300,7 @@ const Skills = () => {
               { name: 'MySQL', icon: <Database className="w-8 h-8 text-blue-600" />, link: 'https://www.mysql.com' },
               { name: 'AWS', icon: <Cloud className="w-8 h-8 text-blue-600" />, link: 'https://aws.amazon.com' },
               { name: 'Vercel', icon: <Cloud className="w-8 h-8 text-blue-600" />, link: 'https://vercel.com' },
-            ].map((tool, index) => (
+            ].map((tool) => (
               <motion.div
                 key={tool.name}
                 className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col items-center"
@@ -354,14 +353,13 @@ const Skills = () => {
                 description: 'Jest, Cypress et Testing Library pour une meilleure qualité de code',
                 progress: 25,
               },
-            ].map((item, index) => (
+            ].map((item) => (
               <motion.div
                 key={item.name}
                 className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
                 whileHover={{ scale: 1.03 }}
               >
                 <h3 className="text-xl font-bold mb-3">{item.name}</h3>
@@ -373,7 +371,7 @@ const Skills = () => {
                       initial={{ width: 0 }}
                       whileInView={{ width: `${item.progress}%` }}
                       viewport={{ once: true }}
-                      transition={{ duration: 1.5, ease: 'easeOut', delay: index * 0.1 }}
+                      transition={{ duration: 1.5, ease: 'easeOut' }}
                     />
                   </div>
                   <div className="text-right mt-1 text-sm text-blue-200">{item.progress}%</div>

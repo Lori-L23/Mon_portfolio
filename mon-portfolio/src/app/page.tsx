@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useScroll, useSpring } from 'framer-motion'; // AnimatePresence retiré
+import { motion} from 'framer-motion'; // AnimatePresence retiré
 import {
   Github as GithubIcon,
   ExternalLink as ExternalLinkIcon,
@@ -36,7 +36,7 @@ type Skill = {
 
 const Portfolio = () => {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { scrollYProgress } = useScroll();
+  // const { scrollYProgress } = useScroll();
 
 //   const scaleX = useSpring(scrollYProgress, {
 //     stiffness: 100,
@@ -271,8 +271,8 @@ const Portfolio = () => {
 
             <div className="grid grid-cols-2 gap-6">
               {[
-                { label: "Projets réalisés", value: "20+" },
-                { label: "Clients satisfaits", value: "10+" },
+                { label: "Projets réalisés", value: "10+" },
+                { label: "Clients satisfaits", value: "7+" },
                 { label: "Années d'expérience", value: "2+" },
                 { label: "Technologies maîtrisées", value: "10+" }
               ].map((stat, index) => (
