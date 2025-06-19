@@ -17,7 +17,7 @@ export default function Footer() {
           {/* Branding */}
           <h3 className="text-2xl font-bold mb-4">Lori.dev</h3>
           <p className="text-gray-400 mb-6">
-            Développeuse Full Stack passionnée par l'innovation
+            Développeuse Full Stack passionnée par l&apos;innovation
           </p>
 
           {/* Navigation Links */}

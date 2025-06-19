@@ -206,7 +206,7 @@ const CertificationForm = ({
 
           <div>
             <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-1">
-              Chemin de l'image (optionnel)
+              Chemin de l&apos;image (optionnel)
             </label>
             <input
               id="image"

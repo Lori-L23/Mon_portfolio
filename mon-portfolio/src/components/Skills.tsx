@@ -333,7 +333,7 @@ const Skills = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold mb-6">
-              En cours <span className="text-blue-400">d'apprentissage</span>
+              En cours <span className="text-blue-400">d&apos;apprentissage</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
           </motion.div>
@@ -389,7 +389,7 @@ const Skills = () => {
             transition={{ delay: 0.4 }}
           >
             <h3 className="text-xl font-medium mb-4">
-              Une technologie que vous utilisez et qui n'apparaît pas ici ?
+              Une technologie que vous utilisez et qui n&apos;apparaît pas ici ?
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
               Je suis toujours ouvert à apprendre de nouvelles technologies en fonction des besoins

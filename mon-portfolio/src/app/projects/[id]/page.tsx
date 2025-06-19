@@ -3,7 +3,7 @@
 
 import { motion } from 'framer-motion';
 import { Github as GithubIcon, ExternalLink as ExternalLinkIcon } from 'lucide-react';
-import { projects, Project } from '@/components/ProjectsData';
+import { projects } from '@/components/ProjectsData';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
