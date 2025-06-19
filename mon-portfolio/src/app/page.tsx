@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion'; // AnimatePresence retiré
 import {
   Github as GithubIcon,
   ExternalLink as ExternalLinkIcon,
@@ -14,10 +14,9 @@ import {
   Palette as PaletteIcon,
   Database as DatabaseIcon,
   Globe as GlobeIcon,
-  Menu as MenuIcon,
-  X as XIcon,
   ChevronDown as ChevronDownIcon
-} from 'lucide-react';
+} from 'lucide-react'; 
+
 
 type Project = {
   id: number;
@@ -36,13 +35,15 @@ type Skill = {
 };
 
 const Portfolio = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+
+//   const scaleX = useSpring(scrollYProgress, {
+//     stiffness: 100,
+//     damping: 30,
+//     restDelta: 0.001
+//   }
+// );
 
   // Données du portfolio
   const projects: Project[] = [
@@ -139,7 +140,7 @@ const Portfolio = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Passionnée par la création d'expériences numériques exceptionnelles avec les technologies modernes
+            Passionnée par la création d&apos;expériences numériques exceptionnelles avec les technologies modernes
           </motion.p>
 
           <motion.div
@@ -259,12 +260,12 @@ const Portfolio = () => {
               Développeuse passionnée depuis 3+ ans
             </h3>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Je suis une développeuse full-stack spécialisée dans la création d'applications web modernes
-              et performantes. Mon expertise couvre l'ensemble de la stack technologique, du front-end
+              Je suis une développeuse full-stack spécialisée dans la création d&apos;applications web modernes
+              et performantes. Mon expertise couvre l&apos;ensemble de la stack technologique, du front-end
               interactif au back-end robuste.
             </p>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Toujours à l'affût des dernières tendances technologiques, j'aime relever de nouveaux
+              Toujours à l&apos;affût des dernières tendances technologiques, j&apos;aime relever de nouveaux
               défis et créer des solutions innovantes qui répondent aux besoins réels des utilisateurs.
             </p>
 
@@ -329,7 +330,7 @@ const Portfolio = () => {
               transition={{ duration: 0.3 }}
             >
               <div className="relative overflow-hidden">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
