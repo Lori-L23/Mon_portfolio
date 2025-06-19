@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion} from 'framer-motion'; // AnimatePresence retiré
+import { motion } from 'framer-motion'; // AnimatePresence retiré
 import {
   Github as GithubIcon,
   ExternalLink as ExternalLinkIcon,
@@ -15,7 +15,7 @@ import {
   Database as DatabaseIcon,
   Globe as GlobeIcon,
   ChevronDown as ChevronDownIcon
-} from 'lucide-react'; 
+} from 'lucide-react';
 
 
 type Project = {
@@ -38,12 +38,12 @@ const Portfolio = () => {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const { scrollYProgress } = useScroll();
 
-//   const scaleX = useSpring(scrollYProgress, {
-//     stiffness: 100,
-//     damping: 30,
-//     restDelta: 0.001
-//   }
-// );
+  //   const scaleX = useSpring(scrollYProgress, {
+  //     stiffness: 100,
+  //     damping: 30,
+  //     restDelta: 0.001
+  //   }
+  // );
 
   // Données du portfolio
   const projects: Project[] = [
@@ -230,7 +230,8 @@ const Portfolio = () => {
                 transition={{ duration: 0.3 }}
               >
                 <div className="absolute inset-4 bg-white rounded-2xl overflow-hidden">
-                  <Image
+                  <div className="text-6xl">👩‍💻</div>
+                  {/* <Image
                     src="/lori2.jpg"
                     alt="Portrait professionnel de Lori"
                     width={320}
@@ -242,7 +243,7 @@ const Portfolio = () => {
                       filter: 'brightness(1.05) contrast(1.1) saturate(1.1)',
                       transform: 'translateZ(0)'
                     }}
-                  />
+                  /> */}
                 </div>
                 <div className="absolute inset-0 rounded-3xl border-4 border-white/10 pointer-events-none" />
               </motion.div>
