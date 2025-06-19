@@ -230,8 +230,8 @@ const Portfolio = () => {
                 transition={{ duration: 0.3 }}
               >
                 <div className="absolute inset-4 bg-white rounded-2xl overflow-hidden">
-                  <div className="text-6xl">👩‍💻</div>
-                  {/* <Image
+
+                  <Image
                     src="/lori2.jpg"
                     alt="Portrait professionnel de Lori"
                     width={320}
@@ -243,7 +243,7 @@ const Portfolio = () => {
                       filter: 'brightness(1.05) contrast(1.1) saturate(1.1)',
                       transform: 'translateZ(0)'
                     }}
-                  /> */}
+                  />
                 </div>
                 <div className="absolute inset-0 rounded-3xl border-4 border-white/10 pointer-events-none" />
               </motion.div>
