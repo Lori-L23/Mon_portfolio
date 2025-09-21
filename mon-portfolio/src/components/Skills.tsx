@@ -25,18 +25,18 @@ const Skills = () => {
   };
 
   const technicalSkills: Skill[] = [
-    { name: 'React/Next.js', level: 85, icon: <Code className="w-6 h-6" />, category: 'Frontend' },
+    { name: 'React/Next.js', level: 80, icon: <Code className="w-6 h-6" />, category: 'Frontend' },
     { name: 'Angular', level: 70, icon: <Code className="w-6 h-6" />, category: 'Frontend' },
     { name: 'JavaScript', level: 80, icon: <Code className="w-6 h-6" />, category: 'Frontend' },
-    { name: 'TypeScript', level: 75, icon: <Code className="w-6 h-6" />, category: 'Frontend' },
-    { name: 'Node.js', level: 80, icon: <Server className="w-6 h-6" />, category: 'Backend' },
-    { name: 'Python', level: 70, icon: <Terminal className="w-6 h-6" />, category: 'Backend' },
+    { name: 'TypeScript', level: 60, icon: <Code className="w-6 h-6" />, category: 'Frontend' },
+    { name: 'Node.js', level: 60, icon: <Server className="w-6 h-6" />, category: 'Backend' },
+    { name: 'Python', level: 50, icon: <Terminal className="w-6 h-6" />, category: 'Backend' },
     { name: 'Laravel', level: 70, icon: <Terminal className="w-6 h-6" />, category: 'Backend' },
     { name: 'MySQL/Laragon', level: 75, icon: <Database className="w-6 h-6" />, category: 'Database' },
     { name: 'Redis', level: 60, icon: <Database className="w-6 h-6" />, category: 'Database' },
     { name: 'React Native', level: 65, icon: <Smartphone className="w-6 h-6" />, category: 'Mobile' },
     { name: 'Git/GitHub', level: 85, icon: <GitBranch className="w-6 h-6" />, category: 'Tools' },
-    { name: 'Figma', level: 75, icon: <Figma className="w-6 h-6" />, category: 'Design' },
+    { name: 'Figma', level: 55, icon: <Figma className="w-6 h-6" />, category: 'Design' },
   ];
 
   const softSkills = [

@@ -80,9 +80,9 @@ const Portfolio = () => {
     { name: "React/Next.js", level: 80, icon: <CodeIcon className="w-6 h-6" /> },
     { name: "TypeScript", level: 60, icon: <CodeIcon className="w-6 h-6" /> },
     { name: "Figma", level: 55, icon: <PaletteIcon className="w-6 h-6" /> },
-    { name: "Node.js", level: 75, icon: <DatabaseIcon className="w-6 h-6" /> },
-    { name: "Python", level: 70, icon: <CodeIcon className="w-6 h-6" /> },
-    { name: "Vercel", level: 60, icon: <GlobeIcon className="w-6 h-6" /> }
+    { name: "Node.js", level: 60, icon: <DatabaseIcon className="w-6 h-6" /> },
+    { name: "Python", level: 50, icon: <CodeIcon className="w-6 h-6" /> },
+    { name: "Vercel", level: 50, icon: <GlobeIcon className="w-6 h-6" /> }
   ];
 
   // Animation variants
@@ -232,7 +232,7 @@ const Portfolio = () => {
                 <div className="absolute inset-4 bg-white rounded-2xl overflow-hidden">
 
                   <Image
-                    src="/lori2.jpg"
+                    src="/llphoto.jpg"
                     alt="Portrait professionnel de Lori"
                     width={320}
                     height={320}
