@@ -2,7 +2,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Code, Palette, Database, Globe, Award, Briefcase, User, Star, Plus } from 'lucide-react';
+import { Code, Palette, Database, Globe, Award, Briefcase, User, Star } from 'lucide-react';
 import { Service, TimelineItem, Certification } from '@/types/portfolio';
 import CertificationsModal from './CertificationsModal';
 import CertificationForm from './CertificationForm';
