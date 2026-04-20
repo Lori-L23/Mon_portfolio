@@ -48,7 +48,7 @@ const About = () => {
 
   const timeline: TimelineItem[] = [
     {
-      year: 'Présent',
+      year: '2024-2025',
       title: 'Développeuse Web Full Stack ',
       description: 'Création d’applications web sur mesure pour divers clients',
       icon: <Briefcase className="w-5 h-5 text-blue-600" />,

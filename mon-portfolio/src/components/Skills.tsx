@@ -34,7 +34,7 @@ const Skills = () => {
     { name: 'Laravel', level: 70, icon: <Terminal className="w-6 h-6" />, category: 'Backend' },
     { name: 'MySQL/Laragon', level: 75, icon: <Database className="w-6 h-6" />, category: 'Database' },
     { name: 'Redis', level: 60, icon: <Database className="w-6 h-6" />, category: 'Database' },
-    { name: 'React Native', level: 65, icon: <Smartphone className="w-6 h-6" />, category: 'Mobile' },
+    // { name: 'React Native', level: 5, icon: <Smartphone className="w-6 h-6" />, category: 'Mobile' },
     { name: 'Git/GitHub', level: 85, icon: <GitBranch className="w-6 h-6" />, category: 'Tools' },
     { name: 'Figma', level: 55, icon: <Figma className="w-6 h-6" />, category: 'Design' },
   ];
@@ -248,7 +248,7 @@ const Skills = () => {
             viewport={{ once: true }}
           >
             {[
-              { name: 'React', icon: <Code className="w-8 h-8 text-blue-600" />, link: 'https://react.dev' },
+              { name: 'React.js', icon: <Code className="w-8 h-8 text-blue-600" />, link: 'https://react.dev' },
               { name: 'Angular', icon: <Code className="w-8 h-8 text-blue-600" />, link: 'https://angular.io' },
               { name: 'Next.js', icon: <FileCode className="w-8 h-8 text-blue-600" />, link: 'https://nextjs.org' },
               {
