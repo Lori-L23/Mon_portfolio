@@ -57,7 +57,7 @@ export const projects: Project[] = [
     technologies: ["React", "Next.js", "MongoDB", "Tailwind CSS", "Stripe"],
     category: "Web",
     github: "https://github.com/lori-dev/agroalimentaire-platform",
-    demo: "https://agroalimentaire-demo.com",
+    demo: "https://tutoree-agro.vercel.app/",
     featured: true,
   },
   {
@@ -91,7 +91,7 @@ export const projects: Project[] = [
       "Une application mobile pour présenter des solutions technologiques respectueuses de l’environnement, avec des études de cas et des calculs d’impact carbone.",
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600&h=400&fit=crop",
     technologies: ["React Native", "Firebase", "Node.js"],
-    category: "web",
+    category: "Web",
     github: "https://github.com/lori-dev/eco-tech-solutions",
     demo: "https://eco-tech-demo.com",
     featured: false,
@@ -104,20 +104,20 @@ export const projects: Project[] = [
     image: "/scan.jpg",
     technologies: ["Python", "OpenCV", "TensorFlow", "Node.js"],
     category: "Security",
-    github: "https://github.com/lori-dev/biometric-authentication",
-    demo: "https://biometric-auth-demo.com",
+    github: "#",
+    demo: "#",
     featured: false,
   },
     {
         id: 9,
-        title: "Application de Gestion de Budget Personnel",
+        title: "Cloud computing avec supabase",
         description:
-        "Application mobile pour aider les utilisateurs à gérer leur budget personnel, suivre leurs dépenses et économiser efficacement.",
-        image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&h=400&fit=crop",
-        technologies: ["Java"],
-        category: "Mobile",
-        github: "#",
-        demo: "#",  
+        "Ce site démontre les principes du Cloud Computing: site statique +Base de donnees cloud en temps reel ",
+        image: "",
+        technologies: ["Html",""],
+        category: "Web",
+        github: "https://github.com/Lori-L23/mon-site-cloud",
+        demo: "https://mon-site-cloud.vercel.app/",  
         featured: false,
     },
     {
@@ -132,14 +132,28 @@ export const projects: Project[] = [
         featured: false,
     },
     {
-        id: 11,
-        title: "Application de quizz(En cours)",
-        description: "Application mobile de quiz éducatifs,basee sur la culture camerounaise et/ou africaine permettant aux utilisateurs de tester leurs connaissances sur divers sujets.",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&h=400&fit=crop",
-        technologies: ["React Native/Flutter", "Firebase", "Node.js"],
-        category: "Mobile",
-        github: "#",
-        demo: "#",
-        featured: false,
-    }
+       id: 11,
+       title: "Chogan- site de commande de parfums ",
+
+       description: "Site web pour commander des parfums en ligne, avec une interface utilisateur intuitive et un processus de commande simplifié.",
+       image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&h=400&fit=crop",
+       technologies: ["React.js"],
+        category: "Web",
+        github: "https:github.com/lori-dev/chogan",
+        demo:"https://chogan-parfums.vercel.app",
+        featured:false
+
+    },
+    {
+      id: 12,
+      title: "Page de web de sondage",
+      description:"Formulaire de sondage pour connaitre la preference des clients",
+      image:"",
+      technologies:["Html", "Css", "JavaScript"],
+      category:"Web",
+      github:"https://github.com/Lori-L23/Sondage-essai",
+      demo:"https://sondage-essai.vercel.app/",
+      featured:false
+    },
+
 ];
