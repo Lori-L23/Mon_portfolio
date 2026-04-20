@@ -44,7 +44,7 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?q=80&w=600&h=400&fit=crop",
     technologies: ["Java", "Spring Boot", "MySQL (Laragon)", "Angular", "Bootstrap"],
     category: "Web",
-    github: "https://gitlab.com/lorisky/gestion_scolaire_backend",
+    github: "https://gitlab.com/lorisky/gestion_scolaire_frontend",
     demo: "#",
     featured: true,
   },
@@ -54,7 +54,7 @@ export const projects: Project[] = [
     description:
       "Une application web dédiée à la promotion des produits agroalimentaires locaux, offrant un catalogue interactif, un système de recommandations géolocalisées et une marketplace pour connecter producteurs et consommateurs.",
     image: "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?q=80&w=600&h=400&fit=crop",
-    technologies: ["React", "Next.js", "MongoDB", "Tailwind CSS", "Stripe"],
+    technologies: ["React", "MySql", "Tailwind CSS", "Stripe"],
     category: "Web",
     github: "https://github.com/lori-dev/agroalimentaire-platform",
     demo: "https://tutoree-agro.vercel.app/",
